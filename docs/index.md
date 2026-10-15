@@ -90,7 +90,7 @@ A fossil holds: `id` (`pbdb.occurrence:139292`), `label` (its taxon, formation, 
 
 ## What PBDB does not give here
 
-- No other base's id (no GBIF, NCBI or Wikidata); Wikidata carries PBDB's taxon number for many taxa.
+- No other base's id (no GBIF, NCBI or Wikidata); Wikidata carries PBDB's taxon number (P10907: 23,600 items on 2026-10-16, T. rex among them), which omnilab/wikidata does not read yet.
 - Not read: collections and their own records, measurements, specimens, opinions, intervals and
   their boundaries, strata, the diversity curves; the three-letter vocabulary.
 
