@@ -1,0 +1,45 @@
+{
+    "name": "omnilab/pbdb",
+    "type": "library",
+    "description": "Omnilab PBDB: a taxon of the Paleobiology Database, fossil or living, by its number or name - rank, accepted name, common name, extant or not, first and last appearances (intervals and ages in Ma), occurrences counted, classification, ecology, reference - a fossil occurrence by its number, a search of names, and the fossil occurrences of a place and an age (outside the contract: an age is no date), through the PBDB data service 1.2, no key needed.",
+    "keywords": [
+        "science",
+        "palaeontology",
+        "paleontology",
+        "fossils",
+        "pbdb",
+        "taxonomy",
+        "omnilab"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Meyer",
+            "email": "marco.meyer@glitchr.io"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "glitchr/omnilab": "^1.0@dev",
+        "symfony/http-client": "^6.4|^7.0|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omnilab\\Pbdb\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Omnilab\\Pbdb\\Tests\\": "Tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

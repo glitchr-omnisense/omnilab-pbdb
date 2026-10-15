@@ -1,0 +1,6 @@
+{
+"elapsed_time":0.00124,
+"records": [
+{"orig_no":"54833","taxon_no":"54833","record_type":"txn","flags":"B","taxon_name":"Tyrannosaurus rex","taxon_attr":"Osborn 1905","common_name":"tyrant lizard king","accepted_no":"54833","accepted_rank":"species","accepted_name":"Tyrannosaurus rex","parent_no":"38613","parent_name":"Tyrannosaurus","reference_no":"9259","is_extant":"extinct","n_occs":70,"firstapp_max_ma":83.6,"firstapp_min_ma":72.2,"lastapp_max_ma":72.2,"lastapp_min_ma":66,"early_interval":"Campanian","late_interval":"Maastrichtian","phylum":"Chordata","class":"Reptilia","family":"Tyrannosauridae","genus":"Tyrannosaurus","taxon_environment":"terrestrial","motility":"actively mobile","life_habit":"ground dwelling, solitary","diet":"carnivore","reproduction":"oviparous, dispersal=direct/internal,mobile","ontogeny":"accretion,modification of parts","image_no":"12189","primary_reference":"H. F. Osborn. 1905. Tyrannosaurus and other Cretaceous carnivorous dinosaurs. Bulletin of the American Museum of Natural History 21(14):259-265"}
+]
+}

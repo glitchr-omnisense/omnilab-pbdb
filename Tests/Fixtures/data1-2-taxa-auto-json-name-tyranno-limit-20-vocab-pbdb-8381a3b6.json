@@ -1,0 +1,25 @@
+{
+"elapsed_time":0.0011,
+"records": [
+{"taxon_no":"141633","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannosauropus","n_occs":"1631"},
+{"taxon_no":"58837","record_type":"txn","taxon_rank":"superfamily","taxon_name":"Tyrannosauroidea","n_occs":"681"},
+{"taxon_no":"38606","record_type":"txn","taxon_rank":"family","taxon_name":"Tyrannosauridae","n_occs":"514"},
+{"taxon_no":"38606","record_type":"txn","taxon_rank":"family","taxon_name":"tyrannosaurid","n_occs":"514"},
+{"taxon_no":"65352","record_type":"txn","taxon_rank":"subfamily","taxon_name":"tyrannosaurine","n_occs":"210"},
+{"taxon_no":"65352","record_type":"txn","taxon_rank":"subfamily","taxon_name":"Tyrannosaurinae","n_occs":"210"},
+{"taxon_no":"92294","record_type":"txn","taxon_rank":"tribe","taxon_name":"Tyrannosaurini","n_occs":"142"},
+{"taxon_no":"68293","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannosauripus","n_occs":"85"},
+{"taxon_no":"38613","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannosaurus","n_occs":"85"},
+{"taxon_no":"254404","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannoneustes","n_occs":"6"},
+{"taxon_no":"281917","record_type":"txn","taxon_rank":"tribe","taxon_name":"Tyrannochthoniini","n_occs":"6"},
+{"taxon_no":"22282","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannophontes","n_occs":"4"},
+{"taxon_no":"473335","record_type":"txn","taxon_rank":"family","taxon_name":"Tyrannophontidae","n_occs":"4"},
+{"taxon_no":"427308","record_type":"txn","taxon_rank":"unranked clade","taxon_name":"Tyrannosauripodidae","n_occs":"3"},
+{"taxon_no":"77207","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannotitan","n_occs":"3"},
+{"taxon_no":"370015","record_type":"txn","taxon_rank":"species","taxon_name":"Peltopleurus tyrannos","n_occs":"2"},
+{"taxon_no":"281918","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannochthonius","n_occs":"2"},
+{"taxon_no":"142075","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannosauripus","n_occs":"2"},
+{"taxon_no":"474399","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannobunus","n_occs":"2"},
+{"taxon_no":"384240","record_type":"txn","taxon_rank":"genus","taxon_name":"Tyrannothroscus","n_occs":"1"}
+]
+}

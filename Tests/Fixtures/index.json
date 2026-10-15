@@ -1,0 +1,54 @@
+{
+    "data1-2-occs-list-json-base-id-txn-54833-loc-polygon-106-9-48-49932-10-0325a2b3.json": {
+        "url": "https://paleobiodb.org/data1.2/occs/list.json?base_id=txn:54833&loc=POLYGON((-106.9 48.49932,-106.766988 48.494914,-106.635325 48.48174,-106.506344 48.459931,-106.381348 48.429708,-106.261591 48.391378,-106.14827 48.345328,-106.042505 48.29202,-105.945333 48.23199,-105.857694 48.165839,-105.780422 48.094226,-105.71424 48.017862,-105.659749 47.937502,-105.617432 47.853936,-105.587642 47.767982,-105.570606 47.680478,-105.566426 47.592271,-105.575077 47.504213,-105.596412 47.417148,-105.630165 47.331908,-105.675956 47.249303,-105.733298 47.170114,-105.8016 47.095086,-105.880178 47.024922,-105.96826 46.960279,-106.064993 46.901757,-106.169455 46.8499,-106.280659 46.805185,-106.397564 46.768027,-106.519086 46.738766,-106.644102 46.717672,-106.771463 46.704937,-106.9 46.70068,-107.028537 46.704937,-107.155898 46.717672,-107.280914 46.738766,-107.402436 46.768027,-107.519341 46.805185,-107.630545 46.8499,-107.735007 46.901757,-107.83174 46.960279,-107.919822 47.024922,-107.9984 47.095086,-108.066702 47.170114,-108.124044 47.249303,-108.169835 47.331908,-108.203588 47.417148,-108.224923 47.504213,-108.233574 47.592271,-108.229394 47.680478,-108.212358 47.767982,-108.182568 47.853936,-108.140251 47.937502,-108.08576 48.017862,-108.019578 48.094226,-107.942306 48.165839,-107.854667 48.23199,-107.757495 48.29202,-107.65173 48.345328,-107.538409 48.391378,-107.418652 48.429708,-107.293656 48.459931,-107.164675 48.48174,-107.033012 48.494914,-106.9 48.49932))&vocab=pbdb&show=coords,loc,paleoloc,strat,class,ref&limit=25&rowcount=true",
+        "status": 200
+    },
+    "data1-2-occs-list-json-base-name-dinosauria-lngmin-110-lngmax-100-latm-77d33283.json": {
+        "url": "https://paleobiodb.org/data1.2/occs/list.json?base_name=Dinosauria&lngmin=-110&lngmax=-100&latmin=40&latmax=50&max_ma=70&min_ma=66&vocab=pbdb&show=coords,loc,paleoloc,strat,class,ref&limit=50&rowcount=true",
+        "status": 200
+    },
+    "data1-2-occs-list-json-base-name-dinosauria-lngmin-110-lngmax-100-latm-8dbec076.json": {
+        "url": "https://paleobiodb.org/data1.2/occs/list.json?base_name=Dinosauria&lngmin=-110&lngmax=-100&latmin=40&latmax=50&max_ma=70&min_ma=66&vocab=pbdb&show=coords,loc,paleoloc,strat,class,ref&limit=50&offset=50&rowcount=true",
+        "status": 200
+    },
+    "data1-2-occs-list-json-base-name-tyrannosaurus-cc-us-interval-maastric-bbf501b1.json": {
+        "url": "https://paleobiodb.org/data1.2/occs/list.json?base_name=Tyrannosaurus&cc=US&interval=Maastrichtian&vocab=pbdb&show=coords,loc,paleoloc,strat,class,ref&limit=5&rowcount=true",
+        "status": 200
+    },
+    "data1-2-occs-single-json-id-occ-139292-vocab-pbdb-show-coords-loc-pale-0179cc4b.json": {
+        "url": "https://paleobiodb.org/data1.2/occs/single.json?id=occ:139292&vocab=pbdb&show=coords,loc,paleoloc,strat,class,ref",
+        "status": 200
+    },
+    "data1-2-occs-single-json-id-occ-999999999-vocab-pbdb-show-coords-loc-p-a83277f2.json": {
+        "url": "https://paleobiodb.org/data1.2/occs/single.json?id=occ:999999999&vocab=pbdb&show=coords,loc,paleoloc,strat,class,ref",
+        "status": 404
+    },
+    "data1-2-taxa-auto-json-name-tyranno-limit-20-vocab-pbdb-8381a3b6.json": {
+        "url": "https://paleobiodb.org/data1.2/taxa/auto.json?name=Tyranno&limit=20&vocab=pbdb",
+        "status": 200
+    },
+    "data1-2-taxa-single-json-id-46521-vocab-pbdb-show-attr-app-class-paren-2acfbc4f.json": {
+        "url": "https://paleobiodb.org/data1.2/taxa/single.json?id=46521&vocab=pbdb&show=attr,app,class,parent,common,ecospace,img,ref",
+        "status": 200
+    },
+    "data1-2-taxa-single-json-id-54833-vocab-pbdb-show-attr-app-class-paren-8c8f7f32.json": {
+        "url": "https://paleobiodb.org/data1.2/taxa/single.json?id=54833&vocab=pbdb&show=attr,app,class,parent,common,ecospace,img,ref",
+        "status": 200
+    },
+    "data1-2-taxa-single-json-id-999999999-vocab-pbdb-show-attr-app-class-p-8892bc6a.json": {
+        "url": "https://paleobiodb.org/data1.2/taxa/single.json?id=999999999&vocab=pbdb&show=attr,app,class,parent,common,ecospace,img,ref",
+        "status": 404
+    },
+    "data1-2-taxa-single-json-name-felis-leo-vocab-pbdb-show-attr-app-class-d92d22c5.json": {
+        "url": "https://paleobiodb.org/data1.2/taxa/single.json?name=Felis leo&vocab=pbdb&show=attr,app,class,parent,common,ecospace,img,ref",
+        "status": 200
+    },
+    "data1-2-taxa-single-json-name-nothingus-nowhereus-vocab-pbdb-show-attr-0f7d3eea.json": {
+        "url": "https://paleobiodb.org/data1.2/taxa/single.json?name=Nothingus nowhereus&vocab=pbdb&show=attr,app,class,parent,common,ecospace,img,ref",
+        "status": 404
+    },
+    "data1-2-taxa-single-json-name-tyrannosaurus-rex-vocab-pbdb-show-attr-a-7ad5a0b9.json": {
+        "url": "https://paleobiodb.org/data1.2/taxa/single.json?name=Tyrannosaurus rex&vocab=pbdb&show=attr,app,class,parent,common,ecospace,img,ref",
+        "status": 200
+    }
+}
