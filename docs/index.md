@@ -90,7 +90,7 @@ A fossil holds: `id` (`pbdb.occurrence:139292`), `label` (its taxon, formation, 
 
 ## What PBDB does not give here
 
-- No other base's id (no GBIF, NCBI or Wikidata): the Catalogue of Life and Wikidata carry PBDB's.
+- No other base's id (no GBIF, NCBI or Wikidata); Wikidata carries PBDB's taxon number for many taxa.
 - Not read: collections and their own records, measurements, specimens, opinions, intervals and
   their boundaries, strata, the diversity curves; the three-letter vocabulary.
 

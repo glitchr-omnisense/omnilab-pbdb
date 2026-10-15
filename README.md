@@ -46,7 +46,7 @@ today) and **no time**, its age in properties (`max_ma`, `min_ma` in `Ma`, `earl
 `OccurrenceQuery::TAXON`, `COUNTRY`, and its own `PbdbSource::MAX_MA`, `MIN_MA`, `INTERVAL`.
 
 PBDB gives no other base's id; a taxon is named in the core's `pbdb` scheme, a fossil in
-`pbdb.occurrence`. The Catalogue of Life names PBDB ids for some taxa (`omnilab/col` reads them).
+`pbdb.occurrence`. `omnilab/col` reads a `pbdb:` id when the Catalogue of Life names one for a taxon (none met on 2026-10-16).
 
 ## Terms of use
 
