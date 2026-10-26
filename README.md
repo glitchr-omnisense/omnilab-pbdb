@@ -1,6 +1,6 @@
 # omnilab/pbdb
 
-The Paleobiology Database for [omniscient/omnilab](https://github.com/glitchr-studio/omnilab): a taxon,
+The Paleobiology Database for [omnisense/omnilab](https://github.com/glitchr-omnisense/omnilab): a taxon,
 fossil or living, by its number or its name - its rank, accepted name, common name, whether it is
 extant, its first and last appearances in the fossil record (their intervals and their ages in
 millions of years), how many occurrences PBDB holds, its classification, its ecology (environment,
