@@ -1,5 +1,11 @@
 # omnilab/pbdb
 
+The Paleobiology Database's data service 1.2 (`https://paleobiodb.org/data1.2/`) for
+[omnisense/omnilab](https://github.com/glitchr-omnisense/omnilab): fossil and living taxa by number
+or name - their first and last appearances in Ma, classification, ecology -, and fossils by
+number, as entities; a search of names; outside the contract, the fossils of a place and an age.
+No key.
+
 ## Installation
 
 ```sh
@@ -13,6 +19,52 @@ $pbdb = (new PbdbSourceFactory($httpClient))->create(['mailto' => 'support@glitc
 ```
 
 With the Symfony bundle, the factory is registered as `pbdb` (see the core's docs).
+
+## Credentials
+
+None: PBDB's data service takes no key and no account.
+
+## Options
+
+The factory's options, with the defaults it applies (`PbdbSourceFactory`):
+
+| Option | Type | Default | Required | Effect |
+|---|---|---|---|---|
+| `radius_km` | `float` | `10` | no | the circle around a `Point`, in kilometres, for `fossils()` when the query gives no `radius` |
+| `mailto` | `?string` | null | no | a contact address, sent in the User-Agent |
+| `user_agent` | `?string` | null | no | the whole User-Agent, in place of the one made from `mailto` |
+| `throttle` | `float` | `0` | no | seconds left between two calls: PBDB publishes no rate |
+| `base_uri` | `string` | `https://paleobiodb.org/data1.2/` | no | the API the source calls |
+
+Per call, `fossils()` reads the filters `OccurrenceQuery::TAXON`, `OccurrenceQuery::COUNTRY`,
+`PbdbSource::MAX_MA`, `PbdbSource::MIN_MA` and `PbdbSource::INTERVAL`; any other key is refused
+before any call ([Fossils](#fossils)).
+
+## Capabilities
+
+`capabilities()` answers `entity`, `search`; an operation it does not answer throws `NotSupportedException` before any call.
+
+| Capability | Supported | |
+|---|---|---|
+| `entity` | yes | a taxon number (`54833`, `pbdb:`, `txn:`, its classic page) or a name (a variant or a synonym gives the taxon it names), or a fossil (`pbdb.occurrence:139292`, `occ:`); another scheme refused before any call |
+| `search` | yes | PBDB's autocompletion: the taxa whose name begins with the text, the most recorded first, one page; a domain other than taxonomy answers an empty page |
+| `series` | no |  |
+| `products` | no |  |
+| `occurrences` | no | refused before any call: a fossil has an age in millions of years, no time - `fossils()`, outside the contract, lists them |
+| `datasets` | no |  |
+| `jobs` | no |  |
+| `open` | no |  |
+| `structure` | no |  |
+| `cross_references` | no | none: PBDB gives no other base's id (Wikidata carries PBDB's taxon number, P10907) |
+| `forecast` | no |  |
+| `historical` | no |  |
+| `area` | no | `fossils()` takes a `BBox` (across the antimeridian too) or a `Point` and a radius |
+| `station` | no |  |
+| `cloud_cover` | no |  |
+
+Outside the contract, on `Omnilab\Pbdb\PbdbSource`: `fossils(OccurrenceQuery $query): Page` -
+the fossil occurrences of a place and an age, each with its place and no time
+([below](#fossils)).
 
 ## Which API
 
@@ -90,9 +142,69 @@ A fossil holds: `id` (`pbdb.occurrence:139292`), `label` (its taxon, formation, 
 
 ## What PBDB does not give here
 
-- No other base's id (no GBIF, NCBI or Wikidata); Wikidata carries PBDB's taxon number (P10907: 23,600 items on 2026-10-16, T. rex among them), which omnilab/wikidata does not read yet.
+- No other base's id (no GBIF, NCBI or Wikidata). Wikidata carries PBDB's taxon number (P10907:
+  23,600 items on 2026-10-16, T. rex among them), which omnilab/wikidata reads as a cross-reference
+  and looks items up by: the `Collector` follows a Wikidata item into PBDB, and offers a PBDB taxon's
+  number to Wikidata.
 - Not read: collections and their own records, measurements, specimens, opinions, intervals and
   their boundaries, strata, the diversity curves; the three-letter vocabulary.
+
+## Example
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Omnilab\Model\BBox;
+use Omnilab\Pbdb\PbdbSource;
+use Omnilab\Pbdb\PbdbSourceFactory;
+use Omnilab\Source\OccurrenceQuery;
+use Omnilab\Source\Query;
+use Symfony\Component\HttpClient\HttpClient;
+
+$pbdb = (new PbdbSourceFactory(HttpClient::create()))->create(['mailto' => 'you@example.org']);
+
+$rex = $pbdb->entity('Tyrannosaurus rex');
+echo $rex->label, ' (', $rex->id, '): ', $rex->value('early_interval'), ' to ', $rex->value('late_interval'), ', ', $rex->property('first_appearance_max_ma'), ' to ', $rex->property('last_appearance_min_ma'), ', ', $rex->value('occurrence_count'), " occurrences\n";
+
+// Dinosaurs of 70 to 66 Ma between Montana and Wyoming: outside the contract (an age is no date).
+$fossils = $pbdb->fossils(new OccurrenceQuery(new BBox(-112, 44, -104, 49), filters: [OccurrenceQuery::TAXON => 'Dinosauria', PbdbSource::MAX_MA => 70, PbdbSource::MIN_MA => 66], limit: 2));
+printf("%d dinosaur occurrences; the first %d:\n", $fossils->total, count($fossils));
+foreach ($fossils as $fossil) {
+    echo '  ', $fossil->id, '  ', $fossil->label, '  ', $fossil->place, "\n";
+}
+echo 'autocompletion of "Tyranno": ', count($pbdb->search(new Query('Tyranno', limit: 50))), " taxa\n";
+```
+
+```
+Tyrannosaurus rex (pbdb:54833): Campanian to Maastrichtian, 83.6 Ma to 66 Ma, 70 occurrences
+493 dinosaur occurrences; the first 2:
+  pbdb.occurrence:139340  Ankylosaurus magniventris - Hell Creek, Late Maastrichtian  47.637699,-106.569901
+  pbdb.occurrence:147092  Pachycephalosaurus wyomingensis - Hell Creek, Maastrichtian  47.695831,-106.227776
+autocompletion of "Tyranno": 25 taxa
+```
+
+(as answered on 2026-10-27: three calls)
+
+```yaml
+# config/packages/omnilab.yaml
+omnilab:
+    sources:
+        pbdb: { factory: pbdb, options: { mailto: '%env(OMNILAB_MAILTO)%', radius_km: 10 } }
+```
+
+`fossils()` is a method of `PbdbSource`, not of the interface the bundle injects: check the
+instance before calling it.
+
+## Errors
+
+Every call goes through `HttpSource`: a 404 or a 410 (and a 204) is null - an empty page for a list -; a 429 is a `RateLimitedException` (`retryAfter` from `Retry-After`); a 5xx, a time-out or a host that does not answer an `UnavailableException`; any other 4xx a `ProviderException` with its `status` and what the service said; an answer that is not JSON a `ProviderException`, a web page answered for JSON an `UnavailableException`.
+
+PBDB's own: an unknown taxon or occurrence is its 404 (its errors in JSON): null. Before any call
+(`NotSupportedException`): an identifier of another scheme; `occurrences()` whatever the query;
+in `fossils()`, a period of dates, a sort (PBDB answers 400 to its own age orders), a filter not
+read, a taxon of another scheme.
 
 ## Verified, and not
 
@@ -106,4 +218,18 @@ autocompletion of "Tyranno" (18 taxa). By curl that day: a box across the antime
 the age orders, the three names of `match_name`. The fixtures in `Tests/Fixtures/` are its answers
 (`index.json` names each one's address).
 
+Again on 2026-10-27: *Tyrannosaurus rex* by its name, the dinosaurs of 70 to 66 Ma between Montana
+and Wyoming (493), the autocompletion of "Tyranno" (25 taxa; the example above).
+
 Not verified: a 429 or an outage (none met).
+
+## Responsibility
+
+This package is an independent, unofficial client: it is not affiliated with, endorsed by or
+sponsored by the Paleobiology Database. Its data are under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); PBDB asks that a use of its data say
+where it came from and when, and cite the references the records come from, as the README's
+[Terms of use](https://github.com/glitchr-omnisense/omnilab-pbdb#terms-of-use) says. Whoever runs
+the package is responsible for complying with them and for any use made of what it returns: see
+the README's [Responsibility](https://github.com/glitchr-omnisense/omnilab-pbdb#responsibility)
+section.
