@@ -59,6 +59,17 @@ the records come from (`primary_reference`). The data service needs no key and p
 
 See [docs/](docs/index.md) for what is read, how it maps, and what PBDB does not give here.
 
+## Usage policy
+
+Declared as data in [`policy.json`](policy.json) (read at https://paleobiodb.org/data1.2/ on 2026-11-10), and honoured on every request by the
+core: a limit reached waits when its window ends within `max_wait` seconds, else the request is not
+sent ([Usage policies](https://github.com/glitchr-omnisense/omnilab/blob/1.x/docs/policies.md)).
+
+- Limits: not published (unknown).
+- Licence: CC-BY-4.0; commercial use: allowed.
+- Credit: required: The data were downloaded from the Paleobiology Database on [date], using the following parameters: [...] (https://paleobiodb.org).
+- Needs: nothing.
+
 ## Responsibility
 
 This package is an independent, unofficial client: it is not affiliated with, endorsed by or
