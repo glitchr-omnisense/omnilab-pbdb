@@ -33,6 +33,34 @@ omnilab:
                 radius_km: 10                  # the circle around a Point, for fossils()
 ```
 
+## Install and a first call
+
+```sh
+composer require omnilab/pbdb
+```
+
+A real call, with no account and no key: Tyrannosaurus rex in the Paleobiology Database. `mailto` is
+your address, sent in the User-Agent so that the service can reach you before it blocks a caller;
+the source keeps to the limits its [`policy.json`](policy.json) declares.
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Omnilab\Pbdb\PbdbSourceFactory;
+
+$pbdb = (new PbdbSourceFactory())->create(['mailto' => 'you@example.org']);   // your address, in the User-Agent
+$rex = $pbdb->entity('54833');
+echo $rex->label, ': ', $rex->value('early_interval'), ' to ', $rex->value('late_interval'), "\n";
+```
+
+Its output on 2026-11-13:
+
+```
+Tyrannosaurus rex: Campanian to Maastrichtian
+```
+
 ## An age is no date: fossils(), outside the contract
 
 The core's fourth shape, `occurrences()`, answers entities each with its **time** - an instant -
